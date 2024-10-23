@@ -9,7 +9,7 @@ Description:
 import numpy as np
 import os
 import time
-from Bn1 import process_group_sequential  # Import the function from Bn1.py
+from merge_sort.B11 import process_group_sequential
 
 # Bn2 - Process all groups sequentially
 def process_all_groups_sequential(data_dir):

@@ -1,5 +1,5 @@
 """
-File: Bn1.py
+File: B11.py
 Create Date: 2024-10-23
 Description:
     - This script processes the arrays in group G0 sequentially using merge sort.

@@ -11,7 +11,7 @@ import os
 import time
 from utils import merge_sort
 
-# Bn1 - Load and process each group sequentially
+# B11 - Load and process each group sequentially
 def process_group_sequential(group_dir):
     sequential_times = []
     cumulative_times = []
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     sequential_times, cumulative_times = process_group_sequential(data_dir)
 
     # Present results in the required format
-    print('MergeSort - Bn1: Processing time of G0 under sequential implementation')
+    print('MergeSort - B11: Processing time of G0 under sequential implementation')
     print(f"{'Array Ai':<14}{'Measured Sequential Time':<30}{'Cumulative Sequential Time'}")
     for i in range(8):
         print(f"{i:<14}{sequential_times[i]:<30.13f}{cumulative_times[i]:.13f}")

@@ -9,7 +9,7 @@ Description:
 import numpy as np
 import os
 import time
-from merge_sort.B11 import process_group_sequential
+from B11 import process_group_sequential
 
 # Bn2 - Process all groups sequentially
 def process_all_groups_sequential(data_dir):
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     group_times, cumulative_times = process_all_groups_sequential(data_dir)
 
     # Present results in the required format for Bn2
-    print('MergeSort - Bn2: Processing time of all groups under sequential implementation')
+    print('MergeSort - B12: Processing time of all groups under sequential implementation')
     print(f"{'Group Index':<14}{'Sequential Time (Group)':<25}{'Cumulative Sequential Time (Group)'}")
     for i in range(10):
         print(f"{i:<14}{group_times[i]:<25.13f}{cumulative_times[i]:.13f}")

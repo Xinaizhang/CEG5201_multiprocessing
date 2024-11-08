@@ -1,0 +1,104 @@
+Processing group 0 from ../../data/G0:
+Array 1 sorted in 0.00014719999999998623 seconds. Cumulative Sequential time in 0.00014719999999998623 seconds.
+Array 2 sorted in 0.00027989999999999959 seconds. Cumulative Sequential time in 0.00042709999999998582 seconds.
+Array 3 sorted in 0.00061330000000001106 seconds. Cumulative Sequential time in 0.00104039999999999688 seconds.
+Array 4 sorted in 0.00109769999999997925 seconds. Cumulative Sequential time in 0.00213809999999997613 seconds.
+Array 5 sorted in 0.00216109999999999913 seconds. Cumulative Sequential time in 0.00429919999999997526 seconds.
+Array 6 sorted in 0.00373789999999998845 seconds. Cumulative Sequential time in 0.00803709999999996372 seconds.
+Array 7 sorted in 0.00679699999999999749 seconds. Cumulative Sequential time in 0.01483409999999996121 seconds.
+Array 8 sorted in 0.00893369999999998887 seconds. Cumulative Sequential time in 0.02376779999999995008 seconds.
+Total sequential sorting time for group 0: 0.02376779999999995008 seconds.
+Processing group 1 from ../../data/G1:
+Array 1 sorted in 0.00012909999999999311 seconds. Cumulative Sequential time in 0.00012909999999999311 seconds.
+Array 2 sorted in 0.00015139999999999598 seconds. Cumulative Sequential time in 0.00028049999999998909 seconds.
+Array 3 sorted in 0.00031860000000000221 seconds. Cumulative Sequential time in 0.00059909999999999131 seconds.
+Array 4 sorted in 0.00060789999999999456 seconds. Cumulative Sequential time in 0.00120699999999998586 seconds.
+Array 5 sorted in 0.00129999999999999560 seconds. Cumulative Sequential time in 0.00250699999999998147 seconds.
+Array 6 sorted in 0.00204350000000000365 seconds. Cumulative Sequential time in 0.00455049999999998511 seconds.
+Array 7 sorted in 0.00334989999999998900 seconds. Cumulative Sequential time in 0.00790039999999997411 seconds.
+Array 8 sorted in 0.00683100000000000374 seconds. Cumulative Sequential time in 0.01473139999999997785 seconds.
+Total sequential sorting time for group 1: 0.01473139999999997785 seconds.
+Processing group 2 from ../../data/G2:
+Array 1 sorted in 0.00013409999999999811 seconds. Cumulative Sequential time in 0.00013409999999999811 seconds.
+Array 2 sorted in 0.00015030000000001986 seconds. Cumulative Sequential time in 0.00028440000000001797 seconds.
+Array 3 sorted in 0.00035730000000000484 seconds. Cumulative Sequential time in 0.00064170000000002281 seconds.
+Array 4 sorted in 0.00058239999999998293 seconds. Cumulative Sequential time in 0.00122410000000000574 seconds.
+Array 5 sorted in 0.00100469999999999726 seconds. Cumulative Sequential time in 0.00222880000000000300 seconds.
+Array 6 sorted in 0.00185029999999999917 seconds. Cumulative Sequential time in 0.00407910000000000217 seconds.
+Array 7 sorted in 0.00394739999999998981 seconds. Cumulative Sequential time in 0.00802649999999999197 seconds.
+Array 8 sorted in 0.00699040000000000772 seconds. Cumulative Sequential time in 0.01501689999999999969 seconds.
+Total sequential sorting time for group 2: 0.01501689999999999969 seconds.
+Processing group 3 from ../../data/G3:
+Array 1 sorted in 0.00013319999999999999 seconds. Cumulative Sequential time in 0.00013319999999999999 seconds.
+Array 2 sorted in 0.00014559999999999573 seconds. Cumulative Sequential time in 0.00027879999999999572 seconds.
+Array 3 sorted in 0.00029969999999998609 seconds. Cumulative Sequential time in 0.00057849999999998181 seconds.
+Array 4 sorted in 0.00056629999999999181 seconds. Cumulative Sequential time in 0.00114479999999997362 seconds.
+Array 5 sorted in 0.00105109999999999926 seconds. Cumulative Sequential time in 0.00219589999999997287 seconds.
+Array 6 sorted in 0.00204480000000001327 seconds. Cumulative Sequential time in 0.00424069999999998615 seconds.
+Array 7 sorted in 0.00373709999999999321 seconds. Cumulative Sequential time in 0.00797779999999997935 seconds.
+Array 8 sorted in 0.00721830000000001082 seconds. Cumulative Sequential time in 0.01519609999999999017 seconds.
+Total sequential sorting time for group 3: 0.01519609999999999017 seconds.
+Processing group 4 from ../../data/G4:
+Array 1 sorted in 0.00015080000000000648 seconds. Cumulative Sequential time in 0.00015080000000000648 seconds.
+Array 2 sorted in 0.00015410000000001811 seconds. Cumulative Sequential time in 0.00030490000000002460 seconds.
+Array 3 sorted in 0.00029930000000000234 seconds. Cumulative Sequential time in 0.00060420000000002694 seconds.
+Array 4 sorted in 0.00059730000000002281 seconds. Cumulative Sequential time in 0.00120150000000004975 seconds.
+Array 5 sorted in 0.00101699999999999013 seconds. Cumulative Sequential time in 0.00221850000000003988 seconds.
+Array 6 sorted in 0.00206319999999998727 seconds. Cumulative Sequential time in 0.00428170000000002715 seconds.
+Array 7 sorted in 0.00410070000000001267 seconds. Cumulative Sequential time in 0.00838240000000003982 seconds.
+Array 8 sorted in 0.00813569999999999571 seconds. Cumulative Sequential time in 0.01651810000000003553 seconds.
+Total sequential sorting time for group 4: 0.01651810000000003553 seconds.
+Processing group 5 from ../../data/G5:
+Array 1 sorted in 0.00013889999999999736 seconds. Cumulative Sequential time in 0.00013889999999999736 seconds.
+Array 2 sorted in 0.00016139999999997823 seconds. Cumulative Sequential time in 0.00030029999999997559 seconds.
+Array 3 sorted in 0.00036189999999997058 seconds. Cumulative Sequential time in 0.00066219999999994617 seconds.
+Array 4 sorted in 0.00059989999999998656 seconds. Cumulative Sequential time in 0.00126209999999993272 seconds.
+Array 5 sorted in 0.00115389999999998549 seconds. Cumulative Sequential time in 0.00241599999999991821 seconds.
+Array 6 sorted in 0.00215940000000003351 seconds. Cumulative Sequential time in 0.00457539999999995173 seconds.
+Array 7 sorted in 0.00419569999999996890 seconds. Cumulative Sequential time in 0.00877109999999992063 seconds.
+Array 8 sorted in 0.00747870000000000479 seconds. Cumulative Sequential time in 0.01624979999999992542 seconds.
+Total sequential sorting time for group 5: 0.01624979999999992542 seconds.
+Processing group 6 from ../../data/G6:
+Array 1 sorted in 0.00012859999999997873 seconds. Cumulative Sequential time in 0.00012859999999997873 seconds.
+Array 2 sorted in 0.00016100000000002224 seconds. Cumulative Sequential time in 0.00028960000000000097 seconds.
+Array 3 sorted in 0.00030229999999997759 seconds. Cumulative Sequential time in 0.00059189999999997855 seconds.
+Array 4 sorted in 0.00056439999999996493 seconds. Cumulative Sequential time in 0.00115629999999994348 seconds.
+Array 5 sorted in 0.00106000000000000538 seconds. Cumulative Sequential time in 0.00221629999999994887 seconds.
+Array 6 sorted in 0.00235190000000001787 seconds. Cumulative Sequential time in 0.00456819999999996673 seconds.
+Array 7 sorted in 0.00371329999999997495 seconds. Cumulative Sequential time in 0.00828149999999994169 seconds.
+Array 8 sorted in 0.00772280000000002964 seconds. Cumulative Sequential time in 0.01600429999999997133 seconds.
+Total sequential sorting time for group 6: 0.01600429999999997133 seconds.
+Processing group 7 from ../../data/G7:
+Array 1 sorted in 0.00013590000000002211 seconds. Cumulative Sequential time in 0.00013590000000002211 seconds.
+Array 2 sorted in 0.00016960000000004749 seconds. Cumulative Sequential time in 0.00030550000000006960 seconds.
+Array 3 sorted in 0.00032389999999998809 seconds. Cumulative Sequential time in 0.00062940000000005769 seconds.
+Array 4 sorted in 0.00084819999999996565 seconds. Cumulative Sequential time in 0.00147760000000002334 seconds.
+Array 5 sorted in 0.00139939999999999509 seconds. Cumulative Sequential time in 0.00287700000000001843 seconds.
+Array 6 sorted in 0.00216030000000000388 seconds. Cumulative Sequential time in 0.00503730000000002232 seconds.
+Array 7 sorted in 0.00415180000000003879 seconds. Cumulative Sequential time in 0.00918910000000006111 seconds.
+Array 8 sorted in 0.00707109999999999683 seconds. Cumulative Sequential time in 0.01626020000000005794 seconds.
+Total sequential sorting time for group 7: 0.01626020000000005794 seconds.
+Processing group 8 from ../../data/G8:
+Array 1 sorted in 0.00014379999999997173 seconds. Cumulative Sequential time in 0.00014379999999997173 seconds.
+Array 2 sorted in 0.00015409999999999036 seconds. Cumulative Sequential time in 0.00029789999999996208 seconds.
+Array 3 sorted in 0.00029999999999996696 seconds. Cumulative Sequential time in 0.00059789999999992904 seconds.
+Array 4 sorted in 0.00058019999999997518 seconds. Cumulative Sequential time in 0.00117809999999990422 seconds.
+Array 5 sorted in 0.00106109999999998150 seconds. Cumulative Sequential time in 0.00223919999999988573 seconds.
+Array 6 sorted in 0.00211519999999998376 seconds. Cumulative Sequential time in 0.00435439999999986949 seconds.
+Array 7 sorted in 0.00386030000000003870 seconds. Cumulative Sequential time in 0.00821469999999990819 seconds.
+Array 8 sorted in 0.00992759999999998088 seconds. Cumulative Sequential time in 0.01814229999999988907 seconds.
+Total sequential sorting time for group 8: 0.01814229999999988907 seconds.
+Processing group 9 from ../../data/G9:
+Array 1 sorted in 0.00014469999999999761 seconds. Cumulative Sequential time in 0.00014469999999999761 seconds.
+Array 2 sorted in 0.00014120000000000799 seconds. Cumulative Sequential time in 0.00028590000000000559 seconds.
+Array 3 sorted in 0.00030910000000000659 seconds. Cumulative Sequential time in 0.00059500000000001219 seconds.
+Array 4 sorted in 0.00058690000000000131 seconds. Cumulative Sequential time in 0.00118190000000001350 seconds.
+Array 5 sorted in 0.00098429999999999351 seconds. Cumulative Sequential time in 0.00216620000000000701 seconds.
+Array 6 sorted in 0.00212379999999995350 seconds. Cumulative Sequential time in 0.00428999999999996051 seconds.
+Array 7 sorted in 0.00363390000000002322 seconds. Cumulative Sequential time in 0.00792389999999998373 seconds.
+Array 8 sorted in 0.00683380000000000098 seconds. Cumulative Sequential time in 0.01475769999999998472 seconds.
+Total sequential sorting time for group 9: 0.01475769999999998472 seconds.
+
+Overall sequential sorting time for all groups: 0.16664459999999978179 seconds.
+
+

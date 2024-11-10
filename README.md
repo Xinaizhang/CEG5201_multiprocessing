@@ -117,21 +117,11 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
     ```sql
     Processing group 0 with processor 1:
     0.44518140000000006040
-    0.40624089999999990486
-    0.39603039999999989362
-    0.42664490000000010461
-    0.47920799999999985630
-    0.41907380000000005182
-    0.43015110000000023049
+    ...
     0.47240159999999997709
     Processing group 0 with processor 1:
     0.44518140000000006040
-    0.85142229999999996526
-    1.24745269999999974786
-    1.67409759999999985247
-    2.15330559999999948673
-    2.57237939999999953855
-    3.00253049999999976905
+    ...
     3.47493209999999974613
     group0 done takes 3.47493209999999974613
 - The first block of time is the array time and second block of time is the cumulative time sorting each array. It shows the group information and processor information.

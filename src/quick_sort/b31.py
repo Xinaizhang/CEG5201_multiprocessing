@@ -5,7 +5,7 @@ import os
 
 def load_arrays(group_dir):
     arrays = []
-    for i in range(8):  # A0-A7 共8个文件
+    for i in range(8):
         filename = f"{group_dir}/A{i}.npy"
         array = np.load(filename)
         arrays.append(array)

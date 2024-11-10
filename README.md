@@ -126,7 +126,16 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
     group0 done takes 3.47493209999999974613
 - The first block of time is the array time and second block of time is the cumulative time sorting each array. It shows the group information and processor information.
 
-
+### 3. Draw the Speed Up Figure (D1.py D2.py)
+#### Usage
+- Run the script:
+  ```bash
+  python D1.py
+  python D2.py
+- Load and preprocess data from d1.xlsx.
+- Plot two graphs:
+  - Measured Speed-Up with different processor numbers.
+  - Cumulative Speed-Up with different processor numbers.
 
 ## 4. Odd-even transposition sort -> YJH
 

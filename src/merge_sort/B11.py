@@ -4,11 +4,12 @@ Create Date: 2024-10-23
 Description:
     - This script processes the arrays in group G0 sequentially using merge sort.
     - It measures the time taken to sort each array and the cumulative time.
-    - The results are presented in the required format.
+    - The results are presented in the required format and saved to a CSV file.
 """
 import numpy as np
 import os
 import time
+import csv
 from utils import merge_sort
 
 # B11 - Load and process each group sequentially
@@ -37,6 +38,14 @@ def process_group_sequential(group_dir):
     
     return sequential_times, cumulative_times
 
+def save_results_to_csv(filename, sequential_times, cumulative_times):
+    """Save the timing results to a CSV file."""
+    with open(filename, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Array Ai", "Measured Sequential Time", "Cumulative Sequential Time"])
+        for i in range(len(sequential_times)):
+            writer.writerow([f"A{i}", f"{sequential_times[i]:.13f}", f"{cumulative_times[i]:.13f}"])
+
 if __name__ == "__main__":
     # Define relative path to the data directory
     current_dir = os.path.dirname(__file__)
@@ -50,3 +59,8 @@ if __name__ == "__main__":
     print(f"{'Array Ai':<14}{'Measured Sequential Time':<30}{'Cumulative Sequential Time'}")
     for i in range(8):
         print(f"{i:<14}{sequential_times[i]:<30.13f}{cumulative_times[i]:.13f}")
+    
+    # Save results to CSV file
+    output_filename = os.path.join(current_dir, 'B11_G0_processing_times.csv')
+    save_results_to_csv(output_filename, sequential_times, cumulative_times)
+    print(f"Results saved to {output_filename}")

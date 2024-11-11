@@ -1,3 +1,9 @@
+"""
+File: utilsv2.py
+Create Date: 2024-10-29
+Description:
+    - Contains utility functions for merge sort implementation.
+"""
 from multiprocessing import Pool, current_process
 import os
 

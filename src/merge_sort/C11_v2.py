@@ -1,4 +1,11 @@
-# C11_v2.py
+"""
+File: c11_v2.py
+Create Date: 2024-10-23
+Description:
+    - This script processes group G0 using merge sort with parallel processing.
+    - It measures the time taken to process each array and the cumulative time.
+    - The results are presented in the required format for C11 and saved to a CSV file.
+"""
 
 import numpy as np
 import os

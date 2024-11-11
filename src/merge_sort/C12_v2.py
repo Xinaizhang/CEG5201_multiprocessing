@@ -1,4 +1,11 @@
-# C12_v2.py
+"""
+File: c12.py
+Create Date: 2024-10-23
+Description:
+    - This script processes all groups (G0 to G9) using parallel merge sort.
+    - It measures the time taken to process each group by varying the number of processes.
+    - The results are presented in the required format for C12.
+"""
 
 import numpy as np
 import os

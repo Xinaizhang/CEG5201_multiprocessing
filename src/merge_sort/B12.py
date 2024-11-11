@@ -1,5 +1,5 @@
 """
-File: Bn2.py
+File: B12.py
 Create Date: 2024-10-23
 Description:
     - This script processes all 10 groups (G0 to G9) sequentially using merge sort.

@@ -1,6 +1,130 @@
 # NUS CEG5201 CA2 - Group6
 
-## 1. Merge sort -> ZXA
+## 1. Merge sort (A0296854J_ZhangXinai)
+
+**Setup**: 
+Navigate to the Merge Sort directory before executing the scripts:
+```bash
+cd src/merge_sort
+```
+
+### 1. `utils.py` and `utilsv2.py`
+
+These files provide core utilities for implementing Merge Sort, including both sequential and parallel sorting functions. `utils.py` includes a basic Merge Sort, while `utilsv2.py` provides an optimized parallel Merge Sort with adjustable depth control.
+
+#### Key Functions
+1. **`merge(left, right)`**:
+   - Merges two sorted subarrays into one sorted array, used in both sequential and parallel sorts.
+
+2. **`merge_sort(arr)`**:
+   - Implements a recursive, sequential Merge Sort, dividing the array into halves and recursively sorting and merging.
+
+3. **`parallel_merge_sort(arr, depth=0, max_depth=3)`** (`utilsv2.py`):
+   - Recursive parallel Merge Sort with controlled depth to optimize performance. The `max_depth` parameter limits recursion depth to manage parallelism effectively and prevent resource overuse.
+
+#### Usage
+- **Importing**:
+  - Sequential and parallel sorting functions can be imported as needed:
+    ```python
+    from utils import merge_sort  # Sequential sorting
+    from utilsv2 import parallel_merge_sort  # Parallel sorting
+    ```
+
+- **Dependencies**:
+  - `multiprocessing` (standard Python library) for parallel processing.
+
+---
+
+### 2. Sequential Sorting (`B11.py` and `B12.py`)
+
+Scripts `B11.py` and `B12.py` use sequential Merge Sort to process datasets of arrays, measuring execution time for each array and providing cumulative timing information. Each script processes `.npy` files within specified directories, tracking both individual and cumulative sorting times.
+
+#### `B11.py`: Processing Group `G0`
+- **Functionality**:
+  - Processes a single group (`G0`), containing arrays `A0` to `A7`, using sequential Merge Sort.
+  - For each array, it records sorting time and cumulative time, outputting results to both console and a CSV file.
+
+- **Usage**:
+```bash
+python B11.py
+```
+- **Input Requirements**:
+  - Arrays must be located in the `data/G0` directory.
+- **Output**:
+  - Results saved in `B11_G0_processing_times.csv`, showing individual and cumulative sorting times for each array.
+- **Dependencies**:
+  - `numpy` (for loading `.npy` files): install via `pip install numpy`
+  - `os`, `time`, `csv` (standard Python libraries)
+
+#### `B12.py`: Processing Groups `G0` to `G9`
+- **Functionality**:
+  - Processes groups `G0` to `G9`, sequentially sorting each array within each group.
+  - Records total sorting time per group and cumulative time across all groups.
+- **Usage**:
+```bash
+python B12.py
+```
+- **Input Requirements**:
+  - Groups `G0` to `G9` should be organized within the data directory, each containing arrays `A0` to `A7`.
+- **Output**:
+  - Results saved in `B12_all_groups_processing_times.csv`, detailing individual group processing times and cumulative times across groups.
+
+### 3. Parallel Sorting All Groups
+#### **Version 1**: Chunk-Based Parallel Merge Sort (`C11_v1.py` & `C12_v1.py`)
+
+This version of the parallel Merge Sort uses chunk-based parallel processing to divide and sort parts of each array or group. Arrays are split into chunks processed in parallel by a specified number of processes, improving efficiency by distributing work across multiple cores.
+
+- **`C11_v1.py`**: Processes group `G0` using chunk-based parallel Merge Sort.
+  - Arrays (`A0` to `A7`) are divided into chunks, sorted independently in parallel, and merged iteratively.
+  - **Input**: Expects `.npy` array files in `data/G0`.
+  - **Parameters**: The number of processes to test is set as `[1, 2, 4, 8]`.
+  - **Output**: Prints individual and cumulative processing times for each array and saves results to a CSV file (`C11_G0_parallel_processing_times.csv`).
+
+- **`C12_v1.py`**: Extends the chunk-based parallel approach to all groups (`G0` to `G9`).
+  - Sequentially processes each group using the chunk-based parallel Merge Sort, printing and saving cumulative processing times for each group.
+  - **Input**: Expects `G0` to `G9` directories in `data`.
+  - **Output**: Prints results and saves cumulative times for each group to a CSV file (`C12_all_groups_parallel_processing_times.csv`).
+
+**Usage**:
+```bash
+python C11_v1.py
+python C12_v1.py
+```
+#### **Version 2**: Recursive Parallel Merge Sort with Controlled Depth (`C11_v2.py` & `C12_v2.py`)
+This version uses a recursive parallel Merge Sort with controlled depth to manage resource allocation. By limiting recursion depth, this method reduces overhead and balances efficiency across multiple processes.
+- `C11_v2.py`: Processes group `G0` using recursive parallel Merge Sort.
+  - Uses a `max_depth` parameter (based on the number of processes) to control parallel recursion.
+  - Input: Expects `.npy` files for arrays `A0` to `A7` in `data/G0`.
+  - Parameters: The number of processes is set as `[1, 2, 4, 8]`.
+  - Output: Prints and saves processing times for each array in `C11_G0_parallel_processing_times.csv`.
+- `C12_v2.py`: Extends the recursive approach to all groups (`G0` to `G9`).
+  - Recursively processes each array in all groups, with max_depth adjusted by the number of processes.
+  - Input: Expects directories for each group (`G0` to `G9`) in data.
+  - Output: Prints and saves cumulative processing times for each group in `C12_all_groups_parallel_processing_times.csv`.
+**Usage**:
+```bash
+python C11_v2.py
+python C12_v2.py
+```
+
+### 4. Draw the Speed-Up Figure (`D11.py` & `D12.py`)
+The scripts `D11.py` and `D12.py` visualize the performance of parallel processing by plotting speed-up graphs for different process counts.
+
+- `D11.py`: Generates speed-up plots for individual arrays and cumulative speed-ups for group G0.
+  - **Input**: Requires timing data from B11_G0_processing_times.csv (sequential) and C11_G0_parallel_processing_times.csv (parallel).
+  - **Output**: Creates two plots (measured and cumulative speed-ups) saved as D11_measured_speedup_plot.png and D11_cumulative_speedup_plot.png.
+  - **Additional Output**: Saves detailed speed-up results for each process count in D11_G0_speedup.csv.
+- `D12.py`: Extends the speed-up analysis to all groups (G0 to G9).
+  - **Input**: Requires timing data from B12_all_groups_processing_times.csv and C12_all_groups_parallel_processing_times.csv.
+  - **Output**: Creates speed-up plots for each group and cumulative speed-ups across all groups, saved as D12_measured_speedup_plot.png and D12_cumulative_speedup_plot.png.
+  - **Additional Output**: Saves detailed speed-up results for each process count in D12_all_groups_speedup.csv.
+**Usage**:
+```bash
+python D11.py
+python D12.py
+```
+
+
 ## 2. Bucket sort -> YY
 ## 3. Quicksort -> HRQ
 ### 1. Sequential Sorting Array in Group 0 (`b31.py`)

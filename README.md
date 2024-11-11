@@ -33,7 +33,6 @@ These files provide core utilities for implementing Merge Sort, including both s
 - **Dependencies**:
   - `multiprocessing` (standard Python library) for parallel processing.
 
----
 
 ### 2. Sequential Sorting (`B11.py` and `B12.py`)
 

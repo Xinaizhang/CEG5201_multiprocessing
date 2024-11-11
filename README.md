@@ -8,7 +8,7 @@ Navigate to the Merge Sort directory before executing the scripts:
 cd src/merge_sort
 ```
 
-### 1. `utils.py` and `utilsv2.py`
+### 1.1 `utils.py` and `utilsv2.py`
 
 These files provide core utilities for implementing Merge Sort, including both sequential and parallel sorting functions. `utils.py` includes a basic Merge Sort, while `utilsv2.py` provides an optimized parallel Merge Sort with adjustable depth control.
 
@@ -34,7 +34,7 @@ These files provide core utilities for implementing Merge Sort, including both s
   - `multiprocessing` (standard Python library) for parallel processing.
 
 
-### 2. Sequential Sorting (`B11.py` and `B12.py`)
+### 1.2 Sequential Sorting (`B11.py` and `B12.py`)
 
 Scripts `B11.py` and `B12.py` use sequential Merge Sort to process datasets of arrays, measuring execution time for each array and providing cumulative timing information. Each script processes `.npy` files within specified directories, tracking both individual and cumulative sorting times.
 
@@ -68,7 +68,7 @@ python B12.py
 - **Output**:
   - Results saved in `B12_all_groups_processing_times.csv`, detailing individual group processing times and cumulative times across groups.
 
-### 3. Parallel Sorting All Groups
+### 1.3 Parallel Sorting All Groups
 #### **Version 1**: Chunk-Based Parallel Merge Sort (`C11_v1.py` & `C12_v1.py`)
 
 This version of the parallel Merge Sort uses chunk-based parallel processing to divide and sort parts of each array or group. Arrays are split into chunks processed in parallel by a specified number of processes, improving efficiency by distributing work across multiple cores.
@@ -106,7 +106,7 @@ python C11_v2.py
 python C12_v2.py
 ```
 
-### 4. Draw the Speed-Up Figure (`D11.py` & `D12.py`)
+### 1.4 Draw the Speed-Up Figure (`D11.py` & `D12.py`)
 The scripts `D11.py` and `D12.py` visualize the performance of parallel processing by plotting speed-up graphs for different process counts.
 
 - `D11.py`: Generates speed-up plots for individual arrays and cumulative speed-ups for group G0.
@@ -126,7 +126,7 @@ python D12.py
 
 ## 2. Bucket sort -> YY
 ## 3. Quicksort -> HRQ
-### 1. Sequential Sorting Array in Group 0 (`b31.py`)
+### 3.1 Sequential Sorting Array in Group 0 (`b31.py`)
 
 This file sequential sort array from group 0 using a sequental quicksort algorithm and logs the sorting times.
 
@@ -163,7 +163,7 @@ This file sequential sort array from group 0 using a sequental quicksort algorit
     Overall sequential sorting time for all groups: 0.01411510000000004705 seconds.
 
 
-### 2. Sequential Sorting All Groups (b32.py)
+### 3.2 Sequential Sorting All Groups (b32.py)
 This file sequential sort all groups using a sequential quicksort algorithm and logs the sorting times.
 #### Functions
 - **`load_arrays(group_dir)`**: 
@@ -199,7 +199,7 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
     Array 8 sorted in 0.00683100000000000374 seconds. Cumulative Sequential time in 0.01473139999999997785 seconds.
 
 
-### 3. Parallel Sorting All Groups (c31_c32.py)
+### 3.3 Parallel Sorting All Groups (c31_c32.py)
 
 ### Functions
 - **`load_arrays(group_dir)`**: 
@@ -249,7 +249,7 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
     group0 done takes 3.47493209999999974613
 - The first block of time is the array time and second block of time is the cumulative time sorting each array. It shows the group information and processor information.
 
-### 3. Draw the Speed Up Figure (D1.py D2.py)
+### 3.4 Draw the Speed Up Figure (D1.py D2.py)
 #### Usage
 - Run the script:
   ```bash

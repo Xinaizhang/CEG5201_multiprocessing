@@ -268,10 +268,7 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
 ### 4.0 Preparation
 
 #### Install Dependencies
-The python packages you need to use are: multiprocessing, numpy, os, time, csv, matplotlib, you can install them directly using the following command:
-```bash
-pip install multiprocessing numpy os time csv matplotlib
-```
+The python packages you need to use are: multiprocessing, numpy, os, time, csv, matplotlib, you can install them directly using "pip install".
 
 **Setup**: 
 Navigate to the Merge Sort directory before executing the scripts:

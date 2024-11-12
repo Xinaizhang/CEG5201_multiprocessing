@@ -24,7 +24,8 @@ def process_group_sequential(group_dir):
         
         cumulative_time += elapsed_time
         cumulative_times.append(cumulative_time)
-    
+    # sequential_times: The sorting time of each array.
+    # cumulative_times: The cumulative sorting time of each array.
     return sequential_times, cumulative_times
 
 if __name__ == "__main__":

@@ -32,7 +32,8 @@ def process_group_parallel(group_dir, n_processes):
 
         cumulative_time += elapsed_time
         cumulative_times.append(cumulative_time)
-
+    # times: The sorting time of each array in Multi-process.
+    # cumulative_times: The cumulative sorting time of each array in Multi-process.
     return times, cumulative_times
 
 if __name__ == "__main__":

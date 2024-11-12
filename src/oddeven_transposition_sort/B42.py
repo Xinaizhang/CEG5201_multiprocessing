@@ -22,7 +22,8 @@ def process_all_groups_sequential(data_dir):
         
         group_cumulative_time += group_time
         group_cumulative_times.append(group_cumulative_time)
-    
+    # group_times: The sorting time of each group.
+    # group_cumulative_times: The cumulative sorting time of each group.
     return group_times, group_cumulative_times
 
 if __name__ == "__main__":

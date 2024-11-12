@@ -1,6 +1,6 @@
 """
 File: c11_v2.py
-Create Date: 2024-10-23
+Create Date: 2024-10-30
 Description:
     - This script processes group G0 using merge sort with parallel processing.
     - It measures the time taken to process each array and the cumulative time.
@@ -20,30 +20,26 @@ def process_group_parallel(group_dir, n_processes):
     cumulative_times = []
     cumulative_time = 0
 
-    # Calculate max_depth based on the number of processes
+
     max_depth = int(math.log2(n_processes)) if n_processes > 0 else 0
 
-    for array_index in range(8):  # A0 to A7
+    for array_index in range(8):
         print(f"Processing Array A{array_index}")
         array_filename = os.path.join(group_dir, f'A{array_index}.npy')
-        Ai = np.load(array_filename)  # Load array from file
-        Ai_list = Ai.tolist()  # Convert numpy array to list
+        Ai = np.load(array_filename)
+        Ai_list = Ai.tolist() 
 
-        # Record the time before and after sorting
         start_time = time.time()
 
-        # Create a pool with n_processes
         with multiprocessing.Pool(processes=n_processes, initializer=init_pool, initargs=(None,)) as p:
             init_pool(p)
             sorted_Ai = parallel_merge_sort(Ai_list, max_depth=max_depth)
 
         end_time = time.time()
 
-        # Calculate time taken to sort this array
         elapsed_time = end_time - start_time
         times.append(elapsed_time)
 
-        # Update cumulative time
         cumulative_time += elapsed_time
         cumulative_times.append(cumulative_time)
 
@@ -53,13 +49,12 @@ def save_results_to_csv(filename, results, process_counts):
     """Save the parallel processing results to a CSV file."""
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
-        # Write headers for each process count
+
         header = ["PairIndex"] + [f"Time_{p}P" for p in process_counts] + [f"Cumulative_{p}P" for p in process_counts]
         writer.writerow(header)
 
-        # Write each row with times and cumulative times for each process count
-        for i in range(8):  # Assuming 8 arrays (A0 to A7)
-            row = [i]  # Start row with PairIndex
+        for i in range(8): 
+            row = [i]
             row.extend(results[p]['times'][i] for p in process_counts)  # Add times for each process count
             row.extend(results[p]['cumulative'][i] for p in process_counts)  # Add cumulative times for each process count
             writer.writerow(row)
@@ -67,14 +62,11 @@ def save_results_to_csv(filename, results, process_counts):
 if __name__ == "__main__":
     multiprocessing.freeze_support()
 
-    # Define relative path to the data directory
     current_dir = os.path.dirname(__file__)
     data_dir = os.path.join(current_dir, '..', '..', 'data', 'G0')  # Path to group G0
 
-    # Define number of processes to test
-    process_counts = [1, 2, 4, 8]  # Adjust based on your CPU cores
+    process_counts = [1, 2, 4, 8]
 
-    # Store results in a dictionary
     results = {}
 
     for n_processes in process_counts:
@@ -82,7 +74,6 @@ if __name__ == "__main__":
         times, cumulative_times = process_group_parallel(data_dir, n_processes)
         results[n_processes] = {'times': times, 'cumulative': cumulative_times}
 
-    # Print the results in the required format
     print("MergeSort - C11: Processing time of G0 under multiprocessing implementation")
     header = f"{' ':<10}" + "".join([f"{'Measured MP Time':<17}" for _ in process_counts]) + "".join([f"{'Measured Cumulative MP Time':<17}" for _ in process_counts])
     subheader = f"{'PairIndex':<10}" + "".join([f"{p:<17}" for p in process_counts]*2)
@@ -97,7 +88,6 @@ if __name__ == "__main__":
             row += f"{results[p]['cumulative'][i]:<17.12f}"
         print(row)
 
-    # Save results to CSV file
     output_filename = os.path.join(current_dir, 'C11_G0_parallel_processing_times.csv')
     save_results_to_csv(output_filename, results, process_counts)
     print(f"Results saved to {output_filename}")

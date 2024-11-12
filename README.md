@@ -125,6 +125,9 @@ python D12.py
 
 
 ## 2. Bucket sort -> YY
+
+
+
 ## 3. Quicksort -> (A0296346R_Hou Runqi)
 ### 3.1 Sequential Sorting Array in Group 0 (`b31.py`)
 
@@ -260,6 +263,99 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
   - Measured Speed-Up with different processor numbers.
   - Cumulative Speed-Up with different processor numbers.
 
-## 4. Odd-even transposition sort -> YJH
+## 4. Odd-even transposition sort -> (A0298720W_YangJunheng)
 
-- Hardware platform: CPU
+**Setup**: 
+Navigate to the Merge Sort directory before executing the scripts:
+```bash
+cd src/oddeven_transposition_sort
+```
+
+### 4.1 `utils.py`
+
+These files provide core utilities for implementing Odd-even transposition sort , including both sequential and parallel sorting functions. 
+
+#### Key Functions
+1. **`odd_even_sort(arr)`**:
+    - Execute the odd-even sorting algorithm sequentially.
+    - **Parameters**: `arr` (list) - Original array
+    - **Returns**: Sorted array
+
+2. **`parallel_odd_even_sort(arr, num_processes)`**:
+    - Execute the odd-even sorting algorithm in parallel.
+    - **Parameters**:
+      - `arr` (list) - Original array
+      - `num_processes` (int) - The number of process.
+    - **Returns**: Sorted array
+
+3. **`compare_and_swap(sub_array)`**:
+    - Perform a sorted traversal of each subarray in the parallel algorithm (that is, only traverse once, and the returned result is not necessarily an ordered array).
+    - **Parameters**: `sub_array` (list) - Original subarray
+    - **Returns**: The flag indicating whether data exchange occurs and the sub-array after one traversal.
+
+#### Usage
+- **Importing**:
+  - Sequential and parallel sorting functions can be imported as needed:
+    ```python
+    from utils import odd_even_sort  # Sequential sorting
+    from utils import parallel_odd_even_sort  # Parallel sorting
+    ```
+
+
+### 4.2 Sequential Sorting (`B41.py` and `B42.py`)
+
+Scripts `B41.py` and `B42.py` use sequential Odd-even transposition sort to process datasets of arrays, measuring execution time for each array and providing cumulative timing information. Each script processes `.npy` files within specified directories, tracking both individual and cumulative sorting times. And store the results in B41.csv and B42.csv in the data folder.
+
+#### `B41.py`: Processing Group `G0`
+- **Functionality**:
+  - Processes a single group (`G0`), cdontaining arrays `A0` to `A7`, using sequential Odd-even transposition sort. And store the results in B41.csv in the data folder.
+
+- **Usage**:
+```bash
+python B41.py
+```
+
+#### `B42.py`: Processing Groups `G0` to `G9`
+- **Functionality**:
+  - Processes groups `G0` to `G9`, sequentially sorting each array within each group. And store the results in B42.csv in the data folder.
+- **Usage**:
+```bash
+python B42.py
+```
+
+### 4.3 Parallel Sorting(`C41.py` & `C42.py`)
+
+Scripts `C41.py` and `C42.py` use parallel Odd-even transposition sort to process datasets of arrays, measuring execution time for each array and providing cumulative timing information. Each script processes `.npy` files within specified directories, tracking both individual and cumulative sorting times. And store the results in C41.csv and C42.csv in the data folder.
+
+#### `C41.py`: Processing Group `G0`
+- **Functionality**:
+  - Processes a single group (`G0`), cdontaining arrays `A0` to `A7`, using parallel Odd-even transposition sort. And store the results in C41.csv in the data folder.
+
+- **Usage**:
+```bash
+python C41.py
+```
+
+#### `C42.py`: Processing Groups `G0` to `G9`
+- **Functionality**:
+  - Processes groups `G0` to `G9`, sorting each array within each group in parallel. And store the results in C42.csv in the data folder.
+- **Usage**:
+```bash
+python C42.py
+```
+
+
+### 4.4 Draw the Speed-Up Figure (`D41.py` & `D42.py`)
+The scripts `D41.py` and `D42.py` visualize the performance of parallel processing by plotting speed-up graphs for different process counts.
+
+- `D41.py`: Generates speed-up plots for individual arrays and cumulative speed-ups for group G0.
+  - **Input**: Requires B41.csv and C41.csv.
+  - **Output**: Creates two plots (measured and cumulative speed-ups).
+- `D42.py`: Extends the speed-up analysis to all groups (G0 to G9).
+  - **Input**: Requires B42.csv and C42.csv.
+  - **Output**: Creates speed-up plots for each group and cumulative speed-ups across all groups.
+**Usage**:
+```bash
+python D41.py
+python D42.py
+```

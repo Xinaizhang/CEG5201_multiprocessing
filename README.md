@@ -125,7 +125,7 @@ python D12.py
 
 
 ## 2. Bucket sort -> YY
-## 3. Quicksort -> HRQ
+## 3. Quicksort -> (A0296346R_Hou Runqi)
 ### 3.1 Sequential Sorting Array in Group 0 (`b31.py`)
 
 This file sequential sort array from group 0 using a sequental quicksort algorithm and logs the sorting times.

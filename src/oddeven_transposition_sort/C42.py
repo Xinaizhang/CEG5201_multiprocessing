@@ -2,6 +2,7 @@ import numpy as np
 import os
 import time
 from utils import parallel_odd_even_sort
+import csv
 import random
 import ctypes
 import multiprocessing
@@ -64,3 +65,13 @@ if __name__ == "__main__":
         for p in process_counts:
             row += f"{results[p]['cumulative'][i]:<17.12f}"
         print(row)
+
+    output_file = os.path.join(current_dir, 'data', 'C42.csv')
+    with open(output_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        for p in process_counts:
+            writer.writerow(results[p]['group_times'])
+        for p in process_counts:
+            writer.writerow(results[p]['cumulative'])
+    
+    print(f"Data saved to {output_file}")

@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import time
+import csv
 from B41 import process_group_sequential
 
 def process_all_groups_sequential(data_dir):
@@ -34,3 +35,11 @@ if __name__ == "__main__":
     print(f"{'Group Index':<14}{'Sequential Time (Group)':<25}{'Cumulative Sequential Time (Group)'}")
     for i in range(10):
         print(f"{i:<14}{group_times[i]:<25.13f}{cumulative_times[i]:.13f}")
+
+    output_file = os.path.join(current_dir, 'data', 'B42.csv')
+    with open(output_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(group_times)
+        writer.writerow(cumulative_times)
+    
+    print(f"Data saved to {output_file}")

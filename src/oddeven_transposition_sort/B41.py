@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import time
+import csv
 from utils import odd_even_sort
 
 def process_group_sequential(group_dir):
@@ -36,3 +37,11 @@ if __name__ == "__main__":
     print(f"{'Array Ai':<14}{'Measured Sequential Time':<30}{'Cumulative Sequential Time'}")
     for i in range(8):
         print(f"{i:<14}{sequential_times[i]:<30.13f}{cumulative_times[i]:.13f}")
+
+    output_file = os.path.join(current_dir, 'data', 'B41.csv')
+    with open(output_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(sequential_times)
+        writer.writerow(cumulative_times)
+    
+    print(f"Data saved to {output_file}")

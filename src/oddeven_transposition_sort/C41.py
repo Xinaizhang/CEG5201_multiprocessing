@@ -2,8 +2,7 @@ import numpy as np
 import os
 import time
 from utils import parallel_odd_even_sort
-import os
-import time
+import csv
 import random
 import ctypes
 import multiprocessing
@@ -20,13 +19,13 @@ def process_group_parallel(group_dir, n_processes):
         array_filename = os.path.join(group_dir, f'A{array_index}.npy')
         Ai = np.load(array_filename)
         Ai_list = Ai.tolist() 
-        print(len(Ai_list))
+        # print(len(Ai_list))
         start_time = time.time()
 
         sorted_Ai = parallel_odd_even_sort(Ai_list, n_processes)
         
         end_time = time.time()
-        print(end_time-start_time)
+        # print(end_time-start_time)
 
         elapsed_time = end_time - start_time
         times.append(elapsed_time)
@@ -62,3 +61,13 @@ if __name__ == "__main__":
         for p in process_counts:
             row += f"{results[p]['cumulative'][i]:<17.12f}"
         print(row)
+
+    output_file = os.path.join(current_dir, 'data', 'C41.csv')
+    with open(output_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        for p in process_counts:
+            writer.writerow(results[p]['times'])
+        for p in process_counts:
+            writer.writerow(results[p]['cumulative'])
+    
+    print(f"Data saved to {output_file}")

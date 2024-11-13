@@ -5,7 +5,7 @@ from multiprocessing import Pool
 from utils import prepare_buckets, sort_bucket
 
 # Load the data
-data_path = './data'
+data_path = '../../data'
 groups = [[np.load(os.path.join(data_path, f'G{g}', file), allow_pickle=True)
            for file in os.listdir(os.path.join(data_path, f'G{g}')) if file.endswith('.npy')]
           for g in range(10)]

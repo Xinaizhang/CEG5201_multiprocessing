@@ -5,7 +5,7 @@ from multiprocessing import Pool
 from utils import prepare_buckets, sort_bucket
 
 # Load data G0
-G0_path = './data/G0'
+G0_path = '../../data/G0'
 G0 = [np.load(os.path.join(G0_path, file), allow_pickle=True) for file in os.listdir(G0_path) if file.endswith('.npy')]
 
 # Parallel processing

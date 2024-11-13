@@ -4,7 +4,7 @@ import time
 from utils import sequential_bucket_sort
 
 # Load data
-data_path = './data' 
+data_path = '../../data' 
 groups = []
 for i in range(10): # G0 to G9
     group_path = os.path.join(data_path, f'G{i}')
@@ -25,6 +25,7 @@ for i, group in enumerate(groups):
     elapsed_time = end_time - start_time
     cumulative_time += elapsed_time
     group_times.append((elapsed_time, cumulative_time))
+
 
 # Output results
 print("Sequential times and cumulative times for each group:")

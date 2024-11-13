@@ -1,7 +1,7 @@
 from multiprocessing import Pool
 
 # Prepare buckets
-def prepare_buckets(arr, N=10):
+def prepare_buckets(arr, N=5):
     # Create N empty buckets
     buckets = [[] for _ in range(N)]
     max_value, min_value = max(arr), min(arr)

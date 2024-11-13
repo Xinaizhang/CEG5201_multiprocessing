@@ -3,7 +3,7 @@ import time
 from utils import sequential_bucket_sort
 
 # Load G0 data
-G0 = [np.load(f'./data/G0/A{i}.npy') for i in range(8)]
+G0 = [np.load(f'../../data/G0/A{i}.npy') for i in range(8)]
 
 # Sequential processing for G0
 cumulative_time = 0

@@ -5,7 +5,7 @@ from multiprocessing import Pool
 from utils import sequential_bucket_sort, parallel_bucket_sort
 
 # Load data G0
-G0 = [np.load(f'./data/G0/A{i}.npy') for i in range(8)]
+G0 = [np.load(f'../../data/G0/A{i}.npy') for i in range(8)]
 
 def measure_speedup_G0():
     sequential_times = []

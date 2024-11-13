@@ -4,6 +4,7 @@
 
 **Setup**: 
 Navigate to the Merge Sort directory before executing the scripts:
+
 ```bash
 cd src/merge_sort
 ```
@@ -100,7 +101,7 @@ This version uses a recursive parallel Merge Sort with controlled depth to manag
   - Recursively processes each array in all groups, with max_depth adjusted by the number of processes.
   - Input: Expects directories for each group (`G0` to `G9`) in data.
   - Output: Prints and saves cumulative processing times for each group in `C12_all_groups_parallel_processing_times.csv`.
-**Usage**:
+  **Usage**:
 ```bash
 python C11_v2.py
 python C12_v2.py
@@ -117,19 +118,133 @@ The scripts `D11.py` and `D12.py` visualize the performance of parallel processi
   - **Input**: Requires timing data from B12_all_groups_processing_times.csv and C12_all_groups_parallel_processing_times.csv.
   - **Output**: Creates speed-up plots for each group and cumulative speed-ups across all groups, saved as D12_measured_speedup_plot.png and D12_cumulative_speedup_plot.png.
   - **Additional Output**: Saves detailed speed-up results for each process count in D12_all_groups_speedup.csv.
-**Usage**:
+  **Usage**:
 ```bash
 python D11.py
 python D12.py
 ```
 
 
-## 2. Bucket sort -> YY
+## 2. Bucket sort -> (A0298684A_Yang Yu)
+
+### 2.0 Preparations
+
+**Install Dependency**: 
+
+The python packages needed are: numpy, os, time, matplotlib, multiprocessing, you can install them directly using "pip install".
+
+**Setup**: 
+
+Navigate to the bucket_sort directory before executing the scripts.
+
+```bash
+cd src/bucket_sort
+```
+
+### 2.1 `utils.py`
+
+This files provide core utilities for implementing bucket sort , including both sequential and parallel sorting functions. 
+
+**Key Functions**: 
+
+1. **`prepare_buckets(arr, N=10)`**:
+   - Create 10 buckets and distribute each element into corresponding bucket. 
+   - **Parameters**: `arr` (list) - Original array; N=10 - Choose to distribute the data into 10 buckets.
+   - **Returns**: Distributed buckets.
+2. **`sort_bucket(bucket)`**:
+   - Sort a single bucket.
+   - **Parameters**:
+     - `bucket`  - The bucket to be sorted.
+   - **Returns**: Sorted bucket.
+3. **`sequential_bucket_sort(arr)`**:
+   - Perform sequential processing of bucket sort on the array.
+   - **Parameters**: `array` (list) - Original array
+   - **Returns**: The sorted array.
+4. **`parallel_bucket_sort(arr)`**:
+   - Perform parallel processing of bucket sort on the array.
+   - **Parameters**: `array` (list) - Original array
+   - **Returns**: The sorted array.
+
+#### Usage
+
+- **Importing**:
+
+  - Sequential and parallel sorting functions can be imported as needed:
+
+    ```python
+    from utils import prepare_buckets, sort_bucket
+    from utils import sequential_bucket_sort
+    from utils import sequential_bucket_sort, parallel_bucket_sort
+    ```
 
 
+### 2.2 Sequential Sorting (`B21.py` and `B22.py`)
+
+#### `B21.py`: Processing Group `G0`
+
+- **Functionality**:
+  - Implements sequential bucket sort for a single group (`G0`).
+  - Measures processing time for each array in  `G0` and calculates cumulative sequential time.
+  
+- **Usage**:
+
+```bash
+python B21.py
+```
+
+#### `B22.py`: Processing Groups `G0` to `G9`
+
+- **Functionality**:
+  - Extends the sequential bucket sort implementation to all groups `G0` to `G9` .
+  - Measures sequential time and cumulative sequential time for each group.
+- **Usage**:
+
+```bash
+python B22.py
+```
+
+### 2.3 Parallel Sorting(`C21.py` & `C22.py`)
+
+#### `C21.py`: Processing Group `G0`
+
+- **Functionality**:
+  - Implements parallel bucket sort for `G0` using the multiprocessing module.
+  - Measures processing time for each array in `G0` with different process counts (1, 2, 4, 8).
+  - Calculates cumulative time for each configuration.
+- **Usage**:
+
+```bash
+python C21.py
+```
+
+#### `C22.py`: Processing Groups `G0` to `G9`
+
+- **Functionality**:
+  - Extends the parallel bucket sort to all groups  `G0` to `G9` .
+  - Evaluates performance across multiple groups with varying process counts.
+- **Usage**:
+
+```bash
+python C22.py
+```
+
+### 2.4 Draw the Speed-Up Figure (`D21.py` & `D22.py`)
+
+The scripts `D21.py` and `D22.py` visualize the performance of parallel processing by plotting speed-up graphs for different process counts.
+
+- **Functionality**:
+  - Computes the speed-up.
+  - Plots measured and cumulative speed-up for varying process counts.
+- **Usage**:
+
+```bash
+python D21.py
+python D22.py
+```
 
 ## 3. Quicksort -> (A0296346R_Hou Runqi)
 ### 3.1 Sequential Sorting Array in Group 0 (`b31.py`)
+
 This file sequential sort array from group 0 using a sequental quicksort algorithm and logs the sorting times.
 
 #### Functions
@@ -214,11 +329,19 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
   - **Parameters**: `arr` (list) - The list of numbers to sort.
   - **Returns**: A sorted list.
 
-- **`parallel_quicksort_task(arr)`**:
-  - Splits an array into two lists based on a randomly chosen pivot value.
+- **`partition_data(arr, pivot)`**:
+  - Splits an array into two lists based on a pivot value.
   - **Parameters**:
     - `arr` (list) - The list of numbers to partition.
+    - `pivot` (int) - The pivot value.
   - **Returns**: Two lists, `low` and `high`, containing elements less than or equal to, and greater than the pivot, respectively.
+
+- **`parallel_quicksort(arr, n_processes)`**:
+  - A parallel quicksort function that utilizes multiple processes to sort the array.
+  - **Parameters**:
+    - `arr` (list) - The list of numbers to sort.
+    - `n_processes` (int) - The number of processes to use for parallel sorting.
+  - **Returns**: A sorted list.
 
 - **`log_time(log_file, message)`**: 
   - Appends a message to the specified log file.
@@ -350,7 +473,7 @@ The scripts `D41.py` and `D42.py` visualize the performance of parallel processi
 - `D42.py`: Extends the speed-up analysis to all groups (G0 to G9).
   - **Input**: Requires B42.csv and C42.csv.
   - **Output**: Creates speed-up plots for each group and cumulative speed-ups across all groups.
-**Usage**:
+  **Usage**:
 ```bash
 python D41.py
 python D42.py

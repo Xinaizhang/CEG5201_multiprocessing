@@ -130,7 +130,6 @@ python D12.py
 
 ## 3. Quicksort -> (A0296346R_Hou Runqi)
 ### 3.1 Sequential Sorting Array in Group 0 (`b31.py`)
-
 This file sequential sort array from group 0 using a sequental quicksort algorithm and logs the sorting times.
 
 #### Functions
@@ -215,19 +214,11 @@ This file sequential sort all groups using a sequential quicksort algorithm and 
   - **Parameters**: `arr` (list) - The list of numbers to sort.
   - **Returns**: A sorted list.
 
-- **`partition_data(arr, pivot)`**:
-  - Splits an array into two lists based on a pivot value.
+- **`parallel_quicksort_task(arr)`**:
+  - Splits an array into two lists based on a randomly chosen pivot value.
   - **Parameters**:
     - `arr` (list) - The list of numbers to partition.
-    - `pivot` (int) - The pivot value.
   - **Returns**: Two lists, `low` and `high`, containing elements less than or equal to, and greater than the pivot, respectively.
-
-- **`parallel_quicksort(arr, n_processes)`**:
-  - A parallel quicksort function that utilizes multiple processes to sort the array.
-  - **Parameters**:
-    - `arr` (list) - The list of numbers to sort.
-    - `n_processes` (int) - The number of processes to use for parallel sorting.
-  - **Returns**: A sorted list.
 
 - **`log_time(log_file, message)`**: 
   - Appends a message to the specified log file.

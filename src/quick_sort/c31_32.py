@@ -1,3 +1,4 @@
+import multiprocessing
 import random
 import time
 from multiprocessing import Pool, Manager
@@ -27,52 +28,19 @@ def quicksort(arr):
            + quicksort([x for x in arr if x >= pivot])
 
 
-def partition_data(arr, pivot):
-    low = [x for x in arr if x <= pivot]
-    high = [x for x in arr if x > pivot]
-    return low, high
-
-
-def parallel_quicksort(arr, n_processes):
-    if len(arr) <= 1:
-        return arr
-
-    with Manager() as manager:
-        shared_arr = manager.list(arr)
-
-        depth = 0
-        with Pool(processes=n_processes) as pool:
-            while depth < n_processes and len(shared_arr) > 1:
-                pivot = random.choice(shared_arr)
-
-                results = pool.starmap(partition_data,
-                                       [(shared_arr[i::n_processes], pivot) for i in range(n_processes)])
-
-                low, high = [], []
-                for low_part, high_part in results:
-                    low.extend(low_part)
-                    high.extend(high_part)
-
-                if depth < n_processes // 2:
-                    shared_arr[:] = low
-                else:
-                    shared_arr[:] = high
-                depth += 1
-
-            sorted_sublists = pool.map(quicksort, [shared_arr[i::n_processes] for i in range(n_processes)])
-            result = []
-            for sublist in sorted_sublists:
-                result.extend(sublist)
-            return result
-
+def parallel_quicksort_task(arr):
+    pivot = random.choice(arr)
+    low_list = [x for x in arr if x <= pivot]
+    high_list = [x for x in arr if x > pivot]
+    return low_list, high_list
 
 if __name__ == '__main__':
     num_groups = 10
+    global pool
     log_file = 'sorting_times_c32.log'
     for processor in [1, 2, 4, 8]:
         group_cul_time = 0
         group_cul_message =f"\n"
-
         for group_num in range(num_groups):
             group_dir = f'../../data/G{group_num}'
             arrays = load_arrays(group_dir)
@@ -80,19 +48,40 @@ if __name__ == '__main__':
             group_message = f"Processing group {group_num} with processor {processor}:"
             array_cul_time = 0
             group_time = 0
-
             for i, A_i in enumerate(arrays):
                 print(i)
+                print(A_i)
                 start_time = time.perf_counter()
-                sorted_array = parallel_quicksort(A_i, processor)
-                end_time = time.perf_counter()
+                with multiprocessing.Pool(processes=processor) as pool:
+                    tasks = [A_i]
+                    sorted_sublists = []
+                    while tasks:
+                        new_tasks = []
+                        async_results = [pool.apply_async(parallel_quicksort_task, (task,)) for task in tasks]
+                        for result in async_results:
+                            low_list, high_list = result.get()
+                            if len(low_list) <= 100:
+                                sorted_sublists.append(quicksort(low_list))
+                            else:
+                                new_tasks.append(low_list)
 
+                            if len(high_list) <= 100:
+                                sorted_sublists.append(quicksort(high_list))
+                            else:
+                                new_tasks.append(high_list)
+
+                        tasks = new_tasks
+
+                    sorted_data = [item for sublist in sorted_sublists for item in sublist]
+                    sorted_data.sort()
+                end_time = time.perf_counter()
                 time_taken = end_time - start_time
                 group_time += time_taken
                 array_cul_time += time_taken
                 group_cul_time += time_taken
                 array_message += f"\n{time_taken:.20f}"
                 group_message += f"\n{array_cul_time:.20f}"
+                print(sorted_data)
             group_message += f"\ngroup{group_num} done takes {group_time:.20f}\n "
             group_cul_message += f"group done cultimate time takes {group_cul_time:.20f}\n"
             log_time(log_file, array_message)

@@ -1,5 +1,10 @@
 # NUS CEG5201 CA2 - Group6
 
+## 0. Preparation
+```bash
+pip install -r requirements.txt
+```
+
 ## 1. Merge sort (A0296854J_ZhangXinai)
 
 **Setup**: 
